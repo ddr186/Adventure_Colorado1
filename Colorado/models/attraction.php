@@ -23,7 +23,7 @@
   class Attractions {
 
     static function delete($id){
-      $query = "DELETE FROM people WHERE id = $1";
+      $query = "DELETE FROM attractions WHERE id = $1";
       $query_params = array($id);
       pg_query_params($query, $query_params);
       return self::all();
