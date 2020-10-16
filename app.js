@@ -1,4 +1,4 @@
-class App extend React.Component {
+class App extends React.Component {
   state = {
     attractions:[]
   }
