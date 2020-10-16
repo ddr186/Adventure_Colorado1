@@ -15,7 +15,7 @@ if(getenv(‘DATABASE_URL’)){
 		“dbname=“.$dbname
 	);
 } else {
-	$dbconn = pg_connect(“host=localhost dbname=Colorado”);
+	$dbconn = pg_connect(“host=localhost dbname=coloradoadventure”);
 }
 
   class Attraction {
