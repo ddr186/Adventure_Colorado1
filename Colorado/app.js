@@ -1,5 +1,4 @@
 class App extends React.Component {
-
   state = {
     attractions:[],
     name: '',
@@ -8,7 +7,6 @@ class App extends React.Component {
     duration: '',
     activitylevel: ''
   }
-
   componentDidMount =() => {
     this.updateAttractions();
   }
@@ -17,7 +15,6 @@ class App extends React.Component {
         [event.target.name]:event.target.value
       })
     }
-
   deleteAttraction = (event) => {
     axios.delete('/attractions/' + event.target.value).then(
       (response) => {
@@ -46,7 +43,6 @@ class App extends React.Component {
           })
       })
     }
-
   updateAttractions = () => {
     axios.get('/attractions')
     .then((response) => {
@@ -56,7 +52,6 @@ class App extends React.Component {
           })
       })
   }
-
   render = () => {
     return(
       <div>
@@ -97,7 +92,6 @@ class App extends React.Component {
     )
   }
 }
-
 ReactDOM.render(
   <App></App>,
   document.querySelector('main')
