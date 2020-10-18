@@ -10,6 +10,8 @@
     $request_body = file_get_contents('php://input');
 
     $body_object = json_decode($request_body);
+    
+    $new_attration = new Attraction(null, $body_object->name, $body_object->city, $body_object->cost, $body_object->duration, $body_object->activitylevel);
 
     $all_attractions = Attractions::create($new_attraction);
 

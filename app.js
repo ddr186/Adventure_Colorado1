@@ -1,3 +1,62 @@
+class CreateForm extends React.Component {
+    createAttraction = (event) => {
+        event.preventDefault();
+        axios.post(
+            '/attractions',
+            {
+                name:this.state.newAttractionName,
+                city:this.state.newAttractionCity,
+                cost:this.state.newAttractionCost,
+                duration:this.state.newAttractionDuration,
+                activitylevel:this.state.newAttractionActivitylevel
+
+            }
+        ).then(
+            (response) => {
+                this.props.createCallback();
+            }
+        )
+    }
+    changeNewAttractionName = (event) => {
+        this.setState({
+            newAttractionName:event.target.value
+        })
+    }
+    changeNewAttractionCity = (event) => {
+        this.setState({
+            newAttractionCity:event.target.value
+        })
+    }
+    changeNewAttractionCost = (event) => {
+        this.setState({
+            newAttractionCost:event.target.value
+        })
+    }
+    changeNewAttractionduration = (event) => {
+        this.setState({
+            newAttractionDuration:event.target.value
+        })
+    }
+    changeNewAttractionActivitylevel = (event) => {
+        this.setState({
+            newAttractionActivitylevel:event.target.value
+        })
+    }
+    render = () => {
+        return <div>
+            <h2>Create Attraction</h2>
+            <form onSubmit={this.createAttraction}>
+                <input onKeyUp={this.changeNewAttracionName} type="text" placeholder="name" /><br/>
+                <input onKeyUp={this.changeNewAttractionCity} type="text" placeholder="city" /><br/>
+                <input onKeyUp={this.changeNewAttractionCost} type="number" placeholder="cost" /><br/>
+                <input onKeyUp={this.changeNewAttractionDuration} type="text" placeholder="duration" /><br/>
+                <input onKeyUp={this.changeNewAttractionActivitylevel} type="text" placeholder="activity level" /><br/>
+                <input type="submit" value="Create Attraction"/>
+            </form>
+        </div>
+    }
+}
+
 class App extends React.Component {
   state = {
     attractions:[]
@@ -76,7 +135,7 @@ class App extends React.Component {
     )
   }
   render = () => {
-    return<div>
+    return <div>
       <CreateForm createCallback={this.updateAttractions}></CreateForm>
       <h2>List of Attractions</h2>
       <ul>
