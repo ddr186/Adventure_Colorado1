@@ -1,7 +1,7 @@
   <?php
-  header('Content-Type: applicaiton/json');
+  header('Content-Type: application/json');
 
-  include_once_ __DIR__ . '/../models/attraction/php';
+  include_once __DIR__ . '/../models/attraction.php';
 
   if($_REQUEST['action'] === 'index'){
     echo json_encode( Attractions::all() );
@@ -10,7 +10,7 @@
     $request_body = file_get_contents('php://input');
 
     $body_object = json_decode($request_body);
-    
+
     $new_attration = new Attraction(null, $body_object->name, $body_object->city, $body_object->cost, $body_object->duration, $body_object->activitylevel);
 
     $all_attractions = Attractions::create($new_attraction);
