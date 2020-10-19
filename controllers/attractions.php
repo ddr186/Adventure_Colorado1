@@ -1,44 +1,23 @@
-  <?php
-<<<<<<< HEAD
-  header('Content-Type: application/json');
+<?php
+header('Content-Type: application/json');
+include_once __DIR__ . '/../models/attraction.php';
 
-  include_once __DIR__ . '/../models/attraction.php';
-=======
-  header('Content-Type: applicaiton/json');
-
-  include_once_ __DIR__ . '/../models/attraction/php';
->>>>>>> d9c1fa3af8d64ffed831cdaed0e9b5f598893c2a
-
-  if($_REQUEST['action'] === 'index'){
+if($_REQUEST['action'] === 'index'){
     echo json_encode( Attractions::all() );
-
-  } else if ($_REQUEST['action'] === 'create'){
+} else if ($_REQUEST['action'] === 'create'){
     $request_body = file_get_contents('php://input');
-
     $body_object = json_decode($request_body);
-
-    $new_attration = new Attraction(null, $body_object->name, $body_object->city, $body_object->cost, $body_object->duration, $body_object->activitylevel);
-
+    $new_attraction = new Attraction(null, $body_object->name, $body_object->city, $body_object->cost, $body_object->duration, $body_object->activitylevel);
     $all_attractions = Attractions::create($new_attraction);
-
     echo json_encode($all_attractions);
-
-  } else if ($_REQUEST['action'] === 'update'){
+} else if ($_REQUEST['action'] === 'update'){
     $request_body = file_get_contents('php://input');
-
     $body_object = json_decode($request_body);
-
-    $updated_attraction = new Attraction($_REQUEST['id'],
-      $body_object->name,
-      $body_object->city,
-      $body_object->cost,
-      $body_object->duration,
-      $body_object->activitylevel);
-
-    $all_attractions = Attractions::update($updated_attraction);
+    $updated_attraction = new Attraction($_REQUEST['id'], $body_object->name, $body_object->city, $body_object->cost, $body_object->duration, $body_object->activitylevel);
+    $all_attractions= Attractions::update($updated_attraction);
     echo json_encode($all_attractions);
-  } else if ($_REQUEST['action'] === 'delete'){
-    $all_attractions = Attraction::delete($_REQUEST['id']);
+} else if ($_REQUEST['action'] === 'delete'){
+    $all_attractions = Attractions::delete($_REQUEST['id']);
     echo json_encode($all_attractions);
-  }
-  ?>
+}
+?>

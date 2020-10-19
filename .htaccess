@@ -1,7 +1,6 @@
 RewriteEngine On
 
 RewriteCond %{REQUEST_METHOD} ^GET$
-<<<<<<< HEAD
 RewriteRule ^attractions$ controllers/attractions.php?action=index
 
 RewriteCond %{REQUEST_METHOD} ^POST$
@@ -12,15 +11,3 @@ RewriteRule ^attractions/([0-9]+)$ controllers/attractions.php?action=update&id=
 
 RewriteCond %{REQUEST_METHOD} ^DELETE$
 RewriteRule ^attractions/([0-9]+)$ controllers/attractions.php?action=delete&id=$1
-=======
-RewriteRule ^advcol$ controllers/advcol.php?action=index
-
-RewriteCond %{REQUEST_METHOD} ^POST$
-RewriteRule ^advcol$ controllers/advcol.php?action=create
-
-RewriteCond %{REQUEST_METHOD} ^PUT$
-RewriteRule ^advcol/([0-9]+)$ controllers/advcol.php?action=update&id=$1
-
-RewriteCond %{REQUEST_METHOD} ^DELETE$
-RewriteRule ^advcol/([0-9]+)$ controllers/advcol.php?action=delete&id=$1
->>>>>>> d9c1fa3af8d64ffed831cdaed0e9b5f598893c2a
