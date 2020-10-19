@@ -1,5 +1,6 @@
   <?php
 
+<<<<<<< HEAD
   $dbconn = null;
   if(getenv('DATABASE_URL')){ // if using the heroku database
   	$connectionConfig = parse_url(getenv('DATABASE_URL'));
@@ -18,6 +19,29 @@
   } else { // if using the local database, change the dbname to be whatever your local database's name is
   	$dbconn = pg_connect("host=localhost dbname=coloradoadventure");
   }
+=======
+  $dbconn = pg_connect("host=locatlhost dbname=Colorado");
+
+  $dbconn = null;
+if(getenv(‘DATABASE_URL’)){
+	$connectionConfig = parse_url(getenv(‘DATABASE_URL’));
+	$host = $connectionConfig[‘host’];
+	$user = $connectionConfig[‘user’];
+	$password = $connectionConfig[‘pass’];
+	$port = $connectionConfig[‘port’];
+	$dbname = trim($connectionConfig[‘path’],‘/’);
+	$dbconn = pg_connect(
+		“host=“.$host.” “.
+		“user=“.$user.” “.
+		“password=“.$password.” “.
+		“port=“.$port.” “.
+		“dbname=“.$dbname
+	);
+} else {
+	$dbconn = pg_connect(“host=localhost dbname=coloradoadventure”);
+}
+
+>>>>>>> d9c1fa3af8d64ffed831cdaed0e9b5f598893c2a
   class Attraction {
     public $id;
     public $name;
@@ -87,7 +111,11 @@
           $row_object->activitylevel
         );
 
+<<<<<<< HEAD
         $attractions[] = $new_attraction;
+=======
+        $attractions[] = $new_attration;
+>>>>>>> d9c1fa3af8d64ffed831cdaed0e9b5f598893c2a
 
         $row_object = pg_fetch_object($results);
       }

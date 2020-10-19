@@ -1,7 +1,13 @@
   <?php
+<<<<<<< HEAD
   header('Content-Type: application/json');
 
   include_once __DIR__ . '/../models/attraction.php';
+=======
+  header('Content-Type: applicaiton/json');
+
+  include_once_ __DIR__ . '/../models/attraction/php';
+>>>>>>> d9c1fa3af8d64ffed831cdaed0e9b5f598893c2a
 
   if($_REQUEST['action'] === 'index'){
     echo json_encode( Attractions::all() );
