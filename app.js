@@ -52,7 +52,6 @@ class App extends React.Component {
   updateAttractions = () => {
     axios.get('/attractions')
     .then((response) => {
-      console.log(response.data, 'hi from update attractions');
         this.setState({
             attractions:response.data
           })
