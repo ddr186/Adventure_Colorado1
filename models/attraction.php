@@ -1,4 +1,5 @@
 <?php
+$dbconn = null;
 if(getenv('DATABASE_URL')){ // if using the heroku database
 	$connectionConfig = parse_url(getenv('DATABASE_URL'));
 	$host = $connectionConfig['host'];
