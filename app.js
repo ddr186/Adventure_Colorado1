@@ -1,72 +1,42 @@
-// hello=========
-
-
-class CreateForm extends React.Component {
-    createAttraction = (event) => {
-        event.preventDefault();
-        axios.post(
-            '/attractions',
-            {
-                name:this.state.newAttractionName,
-                city:this.state.newAttractionCity,
-                cost:this.state.newAttractionCost,
-                duration:this.state.newAttractionDuration,
-                activitylevel:this.state.newAttractionActivitylevel
-
-            }
-        ).then(
-            (response) => {
-                this.props.createCallback();
-            }
-        )
-    }
-    changeNewAttractionName = (event) => {
-        this.setState({
-            newAttractionName:event.target.value
-        })
-    }
-    changeNewAttractionCity = (event) => {
-        this.setState({
-            newAttractionCity:event.target.value
-        })
-    }
-    changeNewAttractionCost = (event) => {
-        this.setState({
-            newAttractionCost:event.target.value
-        })
-    }
-    changeNewAttractionduration = (event) => {
-        this.setState({
-            newAttractionDuration:event.target.value
-        })
-    }
-    changeNewAttractionActivitylevel = (event) => {
-        this.setState({
-            newAttractionActivitylevel:event.target.value
-        })
-    }
-    render = () => {
-        return <div>
-            <h2>Create Attraction</h2>
-            <form onSubmit={this.createAttraction}>
-                <input onKeyUp={this.changeNewAttracionName} type="text" placeholder="name" /><br/>
-                <input onKeyUp={this.changeNewAttractionCity} type="text" placeholder="city" /><br/>
-                <input onKeyUp={this.changeNewAttractionCost} type="number" placeholder="cost" /><br/>
-                <input onKeyUp={this.changeNewAttractionDuration} type="text" placeholder="duration" /><br/>
-                <input onKeyUp={this.changeNewAttractionActivitylevel} type="text" placeholder="activity level" /><br/>
-                <input type="submit" value="Create Attraction"/>
-            </form>
-        </div>
-    }
-}
-
 class App extends React.Component {
- main
   state = {
     attractions:[]
   }
-  componentDidMount =() => {
-    this.updateAttractions();
+  changeNewAttractionName = (event) => {
+      this.setState({
+          newAttractionName:event.target.value
+      })
+  }
+  changeNewAttractionCity = (event) => {
+      this.setState({
+          newAttractionCity:event.target.value
+      })
+  }
+  changeNewAttractionCost = (event) => {
+      this.setState({
+          newAttractionCost:event.target.value
+      })
+  }
+  changeNewAttractionDuration = (event) => {
+      this.setState({
+          newAttractionDuration:event.target.value
+      })
+  }
+  changeNewAttractionActivitylevel = (event) => {
+      this.setState({
+          newAttractionActivitylevel:event.target.value
+      })
+  }
+  deleteAttraction = (event) => {
+    axios.delete('/attractions/' + event.target.value).then(
+      (response) => {
+        this.setState(
+          {
+            attractions:response.data
+          }
+        )
+      }
+    )
   }
     changeUpdateAttractionName = (event) => {
       this.setState({
@@ -85,26 +55,14 @@ class App extends React.Component {
     }
     changeUpdateAttractionDuration = (event) => {
       this.setState({
-        updatedAttractionDuration:event.target.value
+        updateAttractionDuration:event.target.value
       })
     }
     changeUpdateAttractionActivitylevel = (event) => {
       this.setState({
-        updatedAttractionActivitylevel:event.target.value
+        updateAttractionActivitylevel:event.target.value
       })
     }
-
-  deleteAttraction = (event) => {
-    axios.delete('/attractions/' + event.target.value).then(
-      (response) => {
-        this.setState(
-          {
-            attractions:response.data
-          }
-        )
-      }
-    )
-  }
   updateAttraction = (event) => {
     event.preventDefault();
     const id = event.target.getAttribute('id');
@@ -127,7 +85,7 @@ class App extends React.Component {
       }
     )
   }
-  updateAttraction = () => {
+  updateAttractions = () => {
     axios.get('/attractions'),then(
       (response) => {
         this.setState(
@@ -138,21 +96,54 @@ class App extends React.Component {
       }
     )
   }
+  createAttraction = (event) => {
+      event.preventDefault();
+      axios.post(
+          '/attractions',
+          {
+              name:this.state.newAttractionName,
+              city:this.state.newAttractionCity,
+              cost:this.state.newAttractionCost,
+              duration:this.state.newAttractionDuration,
+              activitylevel:this.state.newAttractionActivitylevel
+          }
+      ).then((response) => {
+          this.setState({
+            gifts: response.data
+        })
+      })
+  }
+  componentDidMount =() => {
+    axios.get('/attractions').then(
+      (response) => {
+        this.setState({
+          attractions: response.data
+        }
+      )
+    })
+  }
   render = () => {
     return <div>
-      <CreateForm createCallback={this.updateAttractions}></CreateForm>
+    <form onSubmit={this.createAttraction}>
+        <input onKeyUp={this.changeNewAttracionName} type="text" placeholder="name" /><br/>
+        <input onKeyUp={this.changeNewAttractionCity} type="text" placeholder="city" /><br/>
+        <input onKeyUp={this.changeNewAttractionCost} type="text" placeholder="cost" /><br/>
+        <input onKeyUp={this.changeNewAttractionDuration} type="text" placeholder="duration" /><br/>
+        <input onKeyUp={this.changeNewAttractionActivitylevel} type="text" placeholder="actvity level" /><br/>
+        <input type="submit" value="Create Attraction"/>
+    </form>
       <h2>List of Attractions</h2>
       <ul>
         {
           this.state.attractions.map(
-            (attractions) => {
+            (attraction) => {
               return <li>
               {attraction.name}:
               {attraction.city}:
               {attraction.cost}:
               {attraction.duration}:
               {attraction.activitylevel}
-              <button value ={attracion.id}
+              <button value ={attraction.id}
               onClick={this.deleteAttraction}>
                 Delete
               </button>
@@ -166,13 +157,14 @@ class App extends React.Component {
                   type="text" placeholder="city" /><br/>
                 <input
                 onKeyUp={this.changeUpdateAttractionCost}
-                  type="number" placeholder="cost" /><br/>
+                  type="text" placeholder="cost" /><br/>
                 <input
                 onKeyUp={this.changeUpdateAttractionDuration}
                   type="text" placeholder="duration" /><br/>
                 <input
                 onKeyUp={this.changeUpdateAttractionActivitylevel}
-                  type="text" placeholder="activitylevel" /><br/>
+                  type="text" placeholder="activity level" /><br/>
+                <input type="submit" value="Update Attraction"/>
               </form>
             </li>
             }
@@ -182,7 +174,6 @@ class App extends React.Component {
     </div>
   }
 }
-
 ReactDOM.render(
   <App></App>,
   document.querySelector('main')

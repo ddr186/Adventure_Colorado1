@@ -8,14 +8,14 @@ if(getenv(‘DATABASE_URL’)){
 	$port = $connectionConfig[‘port’];
 	$dbname = trim($connectionConfig[‘path’],‘/’);
 	$dbconn = pg_connect(
-		“host=“.$host.” “.
-		“user=“.$user.” “.
-		“password=“.$password.” “.
-		“port=“.$port.” “.
-		“dbname=“.$dbname
+		"host=".$host." ".
+		"user=".$user." ".
+		"password=".$password." ".
+		"port=".$port." ".
+		"dbname=".$dbname
 	);
 } else {
-	$dbconn = pg_connect(“host=localhost dbname=coloradoadventure”);
+	$dbconn = pg_connect("host=localhost dbname=coloradoadventure");
 }
 
 class Attraction {
