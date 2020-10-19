@@ -1,7 +1,7 @@
 <?php
 $dbconn = null;
-if(getenv('DATABASE_URL')){ // if using the heroku database
-	$connectionConfig = parse_url(getenv('DATABASE_URL'));
+if(getenv('HEROKU_POSTGRESQL_GRAY_URL')){ // if using the heroku database
+	$connectionConfig = parse_url(getenv('HEROKU_POSTGRESQL_GRAY_URL'));
 	$host = $connectionConfig['host'];
 	$user = $connectionConfig['user'];
 	$password = $connectionConfig['pass'];
