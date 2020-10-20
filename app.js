@@ -109,7 +109,7 @@ class App extends React.Component {
           }
       ).then((response) => {
           this.setState({
-            gifts: response.data
+            attractions: response.data
         })
       })
   }
