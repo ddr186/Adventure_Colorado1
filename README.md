@@ -13,4 +13,4 @@ Due to the limited amount of time and the many setbacks so there were not major 
 github: https://github.com/ddr186/Adventure_Colorado1<br />
 Website: http://rocky-gorge-36503.herokuapp.com/<br />
 Trello: https://trello.com/b/qhxb3EzV/adventure-colorado<br />
->>>>>>> 446b83b5971bdf1e7b9503c5d89abfc2870cac6f
+
