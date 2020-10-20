@@ -88,3 +88,7 @@ class Attractions {
     }
 }
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 446b83b5971bdf1e7b9503c5d89abfc2870cac6f

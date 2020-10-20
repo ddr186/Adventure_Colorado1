@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <!-- what the actual fuck>?!?!? -->
 
+=======
+>>>>>>> 446b83b5971bdf1e7b9503c5d89abfc2870cac6f
 INSERT INTO
 attractions
 (name, city, cost, duration, activitylevel)
