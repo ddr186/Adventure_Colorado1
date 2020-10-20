@@ -1,9 +1,6 @@
 # Adventure_Colorado1
 
-![image1](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image1.png) 
-![image2](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image2.png) 
-![image3](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image3.png)  
-![image4](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image4.png)<br />
+![image1](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image1.png)<br />
 
 <br/>
 Adventure Colorado is an app that allows users to see activies providing information such as the location of the activity, the cost of the activity, and the intensity of the activity. The app was created using php react and the css framework bulma. Using CRUD, the app allows the user to create an activity, edit an activity and delete an activity.<br />
