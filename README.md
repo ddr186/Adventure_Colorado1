@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# Adventure_Colorado1
-=======
+
 # Adventure_Colorado1
 
 ![image1](https://github.com/ddr186/Adventure_Colorado1/blob/main/img/image1.png)<br />
