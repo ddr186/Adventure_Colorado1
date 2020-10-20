@@ -1,5 +1,7 @@
 # Adventure_Colorado1
 
+https://imgur.com/QotG49S
+
 Adventure Colorado is an app that allows users to see activies providing information such as the location of the activity, the cost of the activity, and the intensity of the activity. The app was created using php react and the css framework bulma. Using CRUD, the app allows the user to create an activity, edit an activity and delete an activity.
 
 We started by having one person create the repo and connect it to a heroku website while the other person wrote the general CRUD code. There were a lot of bug issues where, the createform was difficult to integrate, then nothing would render, and then the routes would not work. Along with that there were issues with the github where the repo and the local directory had many issues last minute. Most of the instructional notes and communications were conducted through slack where, through pictures and text, issues were conveyed to the other party. However, for visual assitance a trello was created. 
