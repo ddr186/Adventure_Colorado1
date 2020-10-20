@@ -125,7 +125,7 @@ class App extends React.Component {
   render = () => {
     return <div>
     <form onSubmit={this.createAttraction}>
-        <input onKeyUp={this.changeNewAttracionName} type="text" placeholder="name" /><br/>
+        <input onKeyUp={this.changeNewAttractionName} type="text" placeholder="name" /><br/>
         <input onKeyUp={this.changeNewAttractionCity} type="text" placeholder="city" /><br/>
         <input onKeyUp={this.changeNewAttractionCost} type="text" placeholder="cost" /><br/>
         <input onKeyUp={this.changeNewAttractionDuration} type="text" placeholder="duration" /><br/>
